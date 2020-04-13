@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<p id = "lives">lives: 3</p>
+<p id = "missles">missiles: 20</p>
+<title>Defender</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas { 
+  background: url("https://leanpub.com/site_images/html5shootemupinanafternoon/bullet_sprite.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+
+}
+
+
+</style>
+</head>
+<body onload="startGame()">
+<button onclick="window.location.href = 'instructions.html';">Click Here To Go To INSTRUCTIONS</button>
+
+
+<script>
+
+
+
+  function startGame() {
+    badGuy = new image(100, 100, "https://static.wixstatic.com/media/635fdc_bd49013433114d70868c66ee23197671~mv2.png/v1/fill/w_210,h_240,al_c,q_85/635fdc_bd49013433114d70868c66ee23197671~mv2.webp", 700, -150, "image")
+    myGamePiece = new image(100, 100, "https://static.wixstatic.com/media/635fdc_811044c4993c43e19464c70a39f9acc9~mv2.png/v1/fill/w_260,h_260,al_c,q_85/635fdc_811044c4993c43e19464c70a39f9acc9~mv2.webp", 700, 400, "image");
+    shot = new component(5, 100, "black", 805, 805, 1)
+    rBul = new component(5, 50, "green", 805, 805, 1)
+    ammo = new image(50, 50, "https://static.wixstatic.com/media/635fdc_4cbc9f5f6dff407da558db3f4021120d~mv2.png/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01/635fdc_4cbc9f5f6dff407da558db3f4021120d~mv2.webp", 400, 400, "image")
+    boss = new image(600, 400, "https://static.wixstatic.com/media/635fdc_ba349590f4bf420aa69cb7c4b92ad3ba~mv2.png/v1/fill/w_600,h_337,al_c,q_85,usm_0.66_1.00_0.01/635fdc_ba349590f4bf420aa69cb7c4b92ad3ba~mv2.webp", 100, 900, "image")
+
+if (bgMoveToggle === 0) {
+    bgMoveToggle = 1
+  }
+  else if (bgMoveToggle === 1) {
+    bgMoveToggle = 0
+
+  }
+    myGameArea.start();
+  
+   
+ 
+
+
+}
+let loseLives = document.getElementById('lives')
+let misslePath = document.getElementById('missles')
+var ammo;
+var shot;
+var myGamePiece;
+var rBul;
+var badGuy;
+var stuff = 0;
+var missles = 20;
+var otherS = 0;
+var gg = 0;
+var bgMoveToggle = 0;
+var lives = 3;
+var explosion = 0;
+var bGHp = 10;
+var bgDeaths = 0;
+var bossMoveToggle = 0;
+var movEBB = 0;
+
+
+
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 800;
+        this.canvas.height = 550;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+
+   window.addEventListener('keydown', function (e) {
+ //x key
+if (e.which === 88 && otherS < 30) {
+ moveRbul()
+rBul.x = myGamePiece.x + 100
+rBul.y = myGamePiece.y + 30
+ otherS++
+}
+ 
+ 
+ //space key
+if (e.which === 32 && stuff < 5 && missles > 0) {
+ shoot()
+ stuff++
+missles--
+misslePath.innerHTML = ("missiles:" + missles)
+shot.x = myGamePiece.x
+shot.y = myGamePiece.y
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+            myGameArea.key = e.keyCode;
+        })
+        window.addEventListener('keyup', function (e) {
+          myGameArea.key = false
+        })
+    }, 
+
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+
+
+
+class component {
+
+  constructor(width, height, color, x, y, opacity) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.opacity = opacity
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+  }
+}
+
+function image(width, height, color, x, y, type) {
+  this.type = type;
+  if (type == "image") {
+    this.image = new Image();
+    this.image.src = color;
+  }
+  this.width = width;
+  this.height = height;
+  this.x = x;
+  this.y = y;
+  this.speedY;
+  this.speedX;
+  this.update = function() {
+    ctx = myGameArea.context;
+    if (type == "image") {
+      ctx.drawImage(this.image,
+        this.x,
+        this.y,
+        this.width, this.height);
+    } else {
+      ctx.fillStyle = color;
+      ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+  }
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+//left arrow
+if (myGameArea.key && myGameArea.key === 37) {
+moveleft()
+}
+  // right arrow key
+if (myGameArea.key && myGameArea.key === 39) {
+moveright()
+}
+
+//up arrow
+if (myGameArea.key && myGameArea.key === 38) {
+moveup()
+}
+//down arrow 
+if (myGameArea.key && myGameArea.key === 40) {
+movedown()
+}
+//reload
+if (myGameArea.key && myGameArea.key === 82) {
+resetShot()
+resetRbul()
+
+}
+
+if (bgMoveToggle === 1) {
+  moveBG()
+}
+
+if(badGuy.x < 0 && bgMoveToggle === 1) {
+restartBG()
+}
+
+if(badGuy.y > 800 && bgMoveToggle === 1) {
+  resetBG()
+  explosion = 0
+}
+
+
+if (stuff > 0) {
+  shoot()
+}
+
+if (otherS > 0) {
+  moveRbul()
+}
+
+
+
+ 
+
+if (shot.x < badGuy.x + badGuy.width &&
+   shot.x + shot.width > badGuy.x &&
+   shot.y < badGuy.y + badGuy.height &&
+   shot.y + shot.height > badGuy.y) {
+  explode()
+  resetShot()
+   }
+
+if (rBul.x < badGuy.x + badGuy.width &&
+   rBul.x + rBul.width > badGuy.x &&
+   rBul.y < badGuy.y + badGuy.height &&
+   rBul.y + rBul.height > badGuy.y) {
+   bGHp--
+   }
+
+   if (lives === 1) {
+     lose()
+     loseLives.innerHTML = ("lives:" + 0)
+   }
+
+
+if (ammo.x < myGamePiece.x + myGamePiece.width &&
+   ammo.x + ammo.width > myGamePiece.x &&
+   ammo.y < myGamePiece.y + myGamePiece.height &&
+   ammo.y + ammo.height > myGamePiece.y && missles < 20) {
+  reloadMIS()
+  changeAmmoX()
+  changeAmmoY()
+  }
+
+  if (missles > 20) {
+    missles = 20
+    misslePath.innerHTML = ("missiles:" + missles)
+  }
+  
+  if (bGHp === 0) {
+    explode()
+  } 
+
+   if (bossMoveToggle === 1) {
+     movEBB++
+   }
+
+   
+
+  if (bgDeaths === 20) {
+    boss.y = 0;
+    bgDeaths = 0;
+    bossMoveToggle = 1
+    bgMoveToggle = 12;
+    misslePath.innerHTML = ("THIS BOSS IS IMMUNE TO MISSILES")
+  }
+
+
+  myGamePiece.update();
+  shot.update();
+  rBul.update();
+  ammo.update();
+  badGuy.update();
+  boss.update()
+  
+}
+
+
+
+function moveup() {
+   if (myGamePiece.y > 0) {
+  myGamePiece.y -= 5;
+   }
+}
+
+function movedown() {
+  if (myGamePiece.y < 450) {
+    myGamePiece.y += 5; 
+  }
+}
+
+function moveleft() {
+if (myGamePiece.x > 0) {
+    myGamePiece.x -= 5; 
+}
+}
+
+function moveright() {
+if (myGamePiece.x < 700) {
+    myGamePiece.x += 5; 
+}
+}
+
+
+function shoot() {
+  moveBullet()
+}
+
+
+function resetShot() {
+  shot.x = 805
+  shot.y = 805
+  stuff = 0
+}
+
+function moveBullet() {
+shot.y -=10
+}
+
+
+function moveRbul() {
+rBul.y -= 30
+}
+
+function resetRbul() {
+  rBul.x = 850
+  rBul.y = 850
+  otherS = 0
+
+}
+
+function moveBG() {
+  setInterval(badGuy.y += 3, 900)
+}
+
+function resetBG() {
+  changeBgX()
+  badGuy.y = -150
+  badGuy.image.src = "https://static.wixstatic.com/media/635fdc_bd49013433114d70868c66ee23197671~mv2.png/v1/fill/w_210,h_240,al_c,q_85/635fdc_bd49013433114d70868c66ee23197671~mv2.webp"
+
+  if (explosion === 0) {
+    lives--
+    loseLives.innerHTML = ("lives:" + lives)
+  }
+   bGHp = 10;
+}
+
+function restartBG() {
+  badGuy.x = 700
+}
+
+
+function explode() {
+  badGuy.image.src = "https://i.ya-webdesign.com/images/pixel-explosion-png-9.png"
+  explosion = 1
+  bgDeaths++
+}
+
+
+function reloadMIS() {
+  missles += 3 
+  misslePath.innerHTML = ("missiles:" + missles)
+}
+
+
+function changeAmmoX() {
+ammo.x = Math.floor((Math.random() * 780) + 15);
+}
+
+function changeAmmoY() {
+ammo.y = Math.floor((Math.random() * 520) + 15);
+}
+
+function changeBgX() {
+badGuy.x = Math.floor((Math.random() * 520) + 50);
+}
+
+function lose() {
+  loseLives.innerHTML = ("YOU LOST")
+  misslePath.innerHTML = ("YOU LOST")
+  location.reload()
+}
+
+function moveBossLeft() {
+
+
+}
+
+
+function moveBossRight() {
+
+
+  
+}
+
+
+</script>
+</body>
+</html>
