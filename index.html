@@ -1,101 +1,83 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>CSH Gamehub</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <h1><strong>Welcome to the CSH Gamehub.</strong></h1>
-    <body bgcolor="#2C2F33">
-    <h4>We have many games including Snake, Pong, Breakout, and Tetris. Anyone is welcome to look&nbsp;at the code. Thank you and have fun gaming.</h4>
+<link rel="shortcut icon" href="AstrocellLogo.png" />
+<link rel="apple-touch-icon" href="AstrocellLogo.png" />
 
-    <button id="DiscordButton" onclick="window.open('https://discord.gg/N55yzh3')">
-    Discord <i class='fab fa-discord'></i></button>
-    </br>
-    </br>
-    <hr />
-    
-    <button class="button"
-    onclick="window.location.href='https://baseball-game--green726.repl.co/'">Baseball</button></td><td>
+<body bgcolor="#0000FF">
+<title>gamehub</title>
 
-    <button class="button" onclick="window.location.href='https://breakout-redesign--therealgamer516.repl.co/'">Breakout</button></td><td>
+<style>
+button {
+  font-size: 24px;
+  border-radius: 20px;
+  background-color: red;
+  transition-duration: 0.4s;
+}
+button:hover {
+  background-color: blue;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
 
-    <button class="button" onclick="window.location.href='https://chess-ai-v2.pyanschool.repl.co'">Chess</button></td><td>
+<a href="AstrocellLogo.png"><img src="AstrocellLogo.png" alt="Astrocell-LOGO" border="0" style="width:250px;height:250px;"></a>
+<link rel="shortcut icon" href="AstrocellLogo.png" />
+<link rel="apple-touch-icon" href="AstrocellLogo.png" />
+<link href="index.css" rel="stylesheet" type="text/css" />
 
-    <button class="button" onclick="window.location.href='https://Three-Ways-Game.pyanschool.repl.co'">Choices</button>
+<h1><strong>Welcome to the CSH game hub.</strong></h1>
 
-    <button class="button" onclick="window.location.href='https://Click-Coder.pyanschool.repl.co'">Code Clicker</button>
 
-    <button class="button" onclick="window.location.href='https://DEFENDER.pyanschool.repl.co'">Defender</button></td><td>
-    </br>
+<p>We have many games including Snake, Pong, Atari Breakout, and Tetris. Anyone is welcome to look&nbsp; at the code. Thank you and have fun gaming.</p>
 
-    <button class="button" onclick="window.location.href='https://flappy-bird.pyanschool.repl.co'">Flappy Bird</button></td><td>
+<h2>Current Time</h4>
+<h2 id="date">os.timer.getservice(date)</h2>
+<h2 id="time">os.timer.getservice(time)</h2>
+
+
+
+
+
+<button class="button" onclick="window.location.href='ZSnake.html'">Snake</button></td><td>
+
+<button class="button" onclick="window.location.href='ZPongHub.html'">Pong</button></td><td>
+
+<button class="button" onclick="window.location.href='ZBreakout.html'">Atari Breakout</button></td><td>
+
+<button class="button" onclick="window.location.href='ZZTetris/index.html'">Tetris</button></td><td>
   
-    <button class="button" onclick="window.location.href='https://Updated-Maze.pyanschool.repl.co'">Maze</button></td><td>
+<button class="button" onclick="window.location.href='ZMaze.html'">Maze</button></td><td>
 
-    <button class="button" onclick="window.location.href='http://onlinecraft.pyanschool.repl.co/'">Onlinecraft (Beta)</button>
+<button class="button" onclick="window.location.href='ZZFlappyBird/FlappyGame.html'">Flappy Bird</button></td><td>
 
-    <button class="button" onclick="window.location.href='https://pac-man.pyanschool.repl.co'">Pac-man</button></td><td>
+<button class="button" onclick="window.location.href='ZPacMan.html'">Pac-man</button></td><td>
 
-    <button class="button" onclick="window.location.href='https://Pong-Hub.pyanschool.repl.co'">Pong</button></td><td>
+<button class="button" onclick="window.location.href='ZZDefender/DefenderGame.html'">Defender</button></td><td>
 
-    <button class="button" onclick="window.location.href='https://runner--green726.repl.co/'">Runner</button></td><td>
-    </br>
+<button class="button" onclick="window.location.href='ZZChoices/index.html'">Choices</button>
 
-    <button class="button" onclick="window.location.href='https://snake-rework.pyanschool.repl.co/'">Snake</button></td><td>
+<button class="button" onclick="window.location.href='ZZ2048/index.html'">2048</button>
 
-    <button class="button" onclick="window.location.href='https://space-invaders.pyanschool.repl.co/'">Shoot the Balls</button>
+<button class="button" onclick="window.location.href='ZZSpaceInvaders/index.html'">Shoot the Dots</button>
 
-    <button class="button" onclick="window.location.href='https://Tetris-1--pyanschool.repl.co'">Tetris</button></td><td>
+<!-- <button class="button" onclick="window.location.href='Credits.html'">Credits</button></td><td> -->
 
-    <button class="button" onclick="window.location.href='https://google-dino-game--pyanschool.repl.co'">Unicorn Runner</button>
+<h1><strong>Update Log</strong></h1>
 
-    <button class="button" onclick="window.location.href='https://Worlds-Hardest-Game.pyanschool.repl.co'">Worlds Hardest Game</button>
 
-    <button class="button" onclick="window.location.href='https://2048.pyanschool.repl.co'">2048</button>
-    </br>
-
-    <button class="button" onclick="window.location.href='https://Credits.pyanschool.repl.co'">Credits</button></td><td>
-    <hr />
-
-    <h2><strong>Update Log</strong></h2>
-
-    <p>6-17-20: <br/>-Redesigned the Gamehub homepage.</p>
-
-    <p>6-6-20: <br/>-Fully reworked snake.<br/>-More updates to snake coming soon.</p>
-
-    <p>4-10-20: <br/>- Changed the look of this homepage.</p>
-
-    <p>3-16-20: <br/>- Added Runner. It is still buggy but we are actively trying to fix these bugs.</p>
-
-    <p>3-12-20: <br/>- Added quality of life changes to code clicker. </p>
-
-    <p>3-11-20: <br/>- Added code clicker.<br/>- Snake: Removed Collision detection on walls to try to fix some bugs.</p>
-
-    <p>3-10-20: <br/>- Added Worlds Hardest Game.</p>
-
-    <p>3-4-20: <br/>- Revamped tetris GUI and fixed some bugs in the gameplay.</p>
-
-    <p>3-2-20: <br/>- Added Onlinecraft, Choices and 2048. <br/>- We are in the process of changing to a different custom domain.</p>
-
-    <p>2-26-20: <br/>- Added Unicorn Runner. <br/>- Changed the button styles.</p>
-
-    <p>2-14-20: </br>- green726:"I have made my first original game! It is called DEFENDER. Go try it out and give us some feedback!"</p>
-
-    <p>2-13-20: <br/>- New custom domain added</p> <a href="https://astrocell.co/">New Domain</a> <p><br/>-This gamehub will only be used to test games now, enjoy!</p>
-
-    <p>2-12-20: <br/>- Added chess. <br/>- Revamped hompage.</p>
-
-    <p>2-6-20: <br/>- Added Pac-man.</p>
-
-    <p>2-5-20: <br/>- Added Flappy Bird.</p>
-
-    <p>2-4-20: <br/>- Snake: Added walls, and score.</p>
-
-    <p>Unknown time: <br/>- Maze: Revamped gui, made less seizure inducing.</p>
-
-    <script src="index.js"></script>
-  </body>
-</html>
+<p>3-8-20: Changed to custom domain: astrocell.net</p>
+<p>3-4-20 Revamped tetris GUI and fixed some bugs in the gameplay.</p>
+<p>3-2-20: Added Choices and 2048. We are in the process of changing to a different custom domain.</p>
+<p>2-26-20: Added Unicorn Runner. Changed the button styles</p>
+<p>2-14-20: green726:"I Have Made My First Original Game!!! It Is Called DEFENDER. Go Try It Out And Give Us Some FeedBack!!!!!!!!!!!"
+<p>2-13-20: New Custom Domain Added. Link Is :"narwhalnetwork.net/gamehub". This Gamehub Will Only Be Used To Test Games Now. Enjoy!!!!</p>
+<p>2-12-20: Added chess, revamped hompage</p>
+<p>2-6-20: Added Pac-man</p>
+<p>2-5-20: Added Flappy Bird</p>
+<p>2-4-20:Snake: Added walls, and score</p>
+<p>Maze: revamped gui, made less seizure inducing.</p>
+</body>
+<script src="index.js"></script>
