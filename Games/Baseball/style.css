@@ -1,0 +1,5 @@
+canvas { 
+    background: url("https://static.wixstatic.com/media/635fdc_3903398f4b6d4d3a8b37c8379b2f9312~mv2.png/v1/fill/w_390,h_258,al_c,q_85/635fdc_3903398f4b6d4d3a8b37c8379b2f9312~mv2.webp") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+  background-size: cover;
+  }
