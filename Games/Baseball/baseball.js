@@ -1,13 +1,13 @@
 function start() {
-    ball = new image(80, 80, "https://static.wixstatic.com/media/635fdc_05910e7234544a5ab6f9f29fb44dab1a~mv2.png/v1/fill/w_574,h_600,al_c,q_85,usm_0.66_1.00_0.01/635fdc_05910e7234544a5ab6f9f29fb44dab1a~mv2.webp", -100, -100, "image")
-    bat = new image(400, 400, "https://static.wixstatic.com/media/635fdc_0b1828ec44cd4b08946da9f1a3ec44fc~mv2.png/v1/fill/w_286,h_154,al_c,q_85/635fdc_0b1828ec44cd4b08946da9f1a3ec44fc~mv2.webp", 1700, 700, "image")
+    ball = new image(80, 80, "baseball.png", -100, -100, "image")
+    bat = new image(400, 400, "baseballbat.png", 1700, 700, "image")
     text1 = new text(-300, 400, "")
-    pitcher = new image(200, 200, "https://static.wixstatic.com/media/635fdc_893783fe310148e8b19eaacd78a3fce3~mv2.png/v1/fill/w_450,h_600,al_c,q_85,usm_0.66_1.00_0.01/635fdc_893783fe310148e8b19eaacd78a3fce3~mv2.webp", 900, 440, "image")
+    pitcher = new image(200, 200, "pitcher.png", 900, 440, "image")
     scoreT = new text(200, 200, `score: ${score}`)
     strikeT = new text(1400, 200, "0 strikes")
     setTimeout(pitch, 4000)
     myGameArea.start()
-    console.log('started game')
+    console.log('Started game')
     
     }
     
@@ -131,21 +131,20 @@ function start() {
     }
     
     function bat2() {
-    
     bat.x -= 300;
-    bat.image.src = "https://static.wixstatic.com/media/635fdc_547d29ebee13424ca4697a6be9a96a43~mv2.png/v1/fill/w_189,h_257,al_c,q_85/635fdc_547d29ebee13424ca4697a6be9a96a43~mv2.webp"
+    bat.image.src = "baseballbat2.png"
     setTimeout(bat3, 150)
     }
     
     function bat3() {
     bat.x -= 300;
-    bat.image.src = "https://static.wixstatic.com/media/635fdc_53291e6ca2fd4076ab77e3e6c058927e~mv2.png/v1/fill/w_228,h_225,al_c,q_85/635fdc_53291e6ca2fd4076ab77e3e6c058927e~mv2.webp"
+    bat.image.src = "baseballbat3.png"
     setTimeout(bat4, 150)
     
     }
     
     function bat4() {
-      bat.image.src = "https://static.wixstatic.com/media/635fdc_19da2469788f4343bf7dcca33c1e79df~mv2.png/v1/fill/w_288,h_110,al_c,q_85/635fdc_19da2469788f4343bf7dcca33c1e79df~mv2.webp"
+      bat.image.src = "baseballbat4.png"
     bat.x -= 300;
     }
     
@@ -181,7 +180,7 @@ function start() {
     }
     
     function ground() {
-      text1.hp = "You Grounded Out!"
+      text1.hp = "You grounded out!"
       text1.x = 400
       score -= 200;
       setTimeout(reset, 3000)
@@ -256,9 +255,9 @@ function start() {
       ball.y = pitcher.y
       ball.x = pitcher.x
       bat.x = 1700;
-      bat.image.src = "https://static.wixstatic.com/media/635fdc_0b1828ec44cd4b08946da9f1a3ec44fc~mv2.png/v1/fill/w_286,h_154,al_c,q_85/635fdc_0b1828ec44cd4b08946da9f1a3ec44fc~mv2.webp"
+      bat.image.src = "baseballbat.png"
       ball.speedY = speed;
-      console.log('threw the ball')
+      console.log('Threw the ball')
     text1.x = -200
     }
     
@@ -272,7 +271,7 @@ function start() {
        ball.y < bat.y + bat.height &&
        ball.y + ball.height > bat.y && hitB == 0 && swung > 0) {
          hitB += 1;
-         console.log('hit the ball')
+         console.log('Hit the ball')
     hit(Math.floor(Math.random() * 7))
        }
     }
@@ -291,7 +290,7 @@ function start() {
     
     if(myGameArea.key && myGameArea.key === 32 && hitB == 0 && swung == 0) {
       swung = 1;
-      console.log('pressed space key')
+      console.log('Pressed space key')
       swing()
     }
     
