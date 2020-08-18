@@ -1,3 +1,3 @@
 # Gamehub
-To access the website after downloading it to your pc open the file named index.html
-Please report any bugs in the discord or any features or changes that you want to be made to the website
+
+This is the source for the website https://www.astrocore.net/ feel free to make a pull request if you think there is anything you can improve
