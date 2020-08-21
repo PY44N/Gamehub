@@ -27,6 +27,8 @@ a {
 
 .updates {
   text-align: left;
+  overflow: auto;
+  height: 50vh;
 }
 
 .github {
