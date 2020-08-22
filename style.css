@@ -51,6 +51,11 @@ p::selection {
   background: #A93226;
 }
 
+h4::selection {
+  color: white;
+  background: #A93226;
+}
+
 h3::selection {
   color: white;
   background:#A93226;
