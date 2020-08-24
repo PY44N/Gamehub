@@ -1,42 +1,41 @@
-let time = document.getElementById('time');
-let date = document.getElementById('date');
-const days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
-var cm;
-setInterval(function(){
-  showTime()
-},0);
-var d = new Date();
-function showTime() {
-  var today = new Date();
-  var dd = today.getDate();
-  var year = today.getFullYear();
-  var month = today.getMonth()+1;
-  var day = today.getDay();
-  if (dd < 10) {
-    dd = '0'+dd;
+function clock() {
+  //Date
+  var d = new Date();
+  var day = d.getDate();
+  var year = d.getFullYear();
+  var month = d.getMonth() + 1;
+  var weekday = d.getDay();
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  if (day < 10) {
+    day = `0${day}`;
   }
-  
-  if (month < 10) {
-    month = '0'+month;
+  //Needs to be changed to be less jank
+  if (year => 2000) {
+    year = year - 2000;
   }
-  var h = today.getHours();
-  var m = today.getMinutes();
-  var s = today.getSeconds();
-  if (h > 12) {
-    cm ="PM"
-    h = h -12
-  } else {
-    cm ="AM"
+  //Changes the html element to display the date
+  date.innerHTML = `${days[weekday]} ${month}-${day}-${year}`;
+  //Time
+  var t = new Date;
+  var hour = t.getHours();
+  var minute = t.getMinutes();
+  var second = t.getSeconds();
+  var am = "AM"
+  if (hour > 12) {
+    am = "PM"
   }
-  if (s < 10) {
-    s = '0'+s;
+  if (hour > 12) {
+    hour = hour - 12;
   }
-  if (m < 10) {
-    m = '0'+m;
+  if (minute < 10) {
+    minute = `0${minute}`;
   }
-  if (h < 10) {
-    h = '0'+h;
-  }
-  time.innerHTML = `${h}:${m}:${s} ${cm}`
-  date.innerHTML = `${month}-${dd}-${year} ${days[day]}`
+  if (second < 10)
+    second = `0${second}`;
+  //Changes the html element time to display the time
+  time.innerHTML = `${hour}:${minute}:${second} ${am}`;
+  //Check to see if the time has changed every 1000 milliseconds / every 1 second
+  setInterval(clock, 1);
 }
+//Calls the clock function
+clock();

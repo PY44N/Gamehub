@@ -8,7 +8,7 @@ body {
 }
 
 button {
-  font-size: 24px;
+  font-size: 150%;
   border-radius: 20px;
   color:#FFFFFF;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -19,6 +19,30 @@ button {
 
 a {
   color: #A93226;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #232527;
+}
+
+li {
+  float: left;
+  padding: 14px 16px;
+  cursor: pointer;
+  background-color: #42474d;
+  border: 2px solid white;
+}
+
+li:hover {
+  background-color: #2C2F33;
+}
+
+.active:hover {
+  background-color: #275edc;
 }
 
 .title {
@@ -45,14 +69,13 @@ a {
   cursor: pointer;
 }
 
+.active {
+  background-color: #275edc;
+}
+
 /*Changes the look of elements when highlighted*/
 p::selection {
   color:white;
-  background: #A93226;
-}
-
-h4::selection {
-  color: white;
   background: #A93226;
 }
 
@@ -95,11 +118,11 @@ b::selection {
 button:hover {
   background-color: #A93226;
   color: #FFFFFF;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 #0000003d, 0 17px 50px 0 #00000030;
 }
 
 button:active {
-  background-color: rgb(134, 7, 7);
+  background-color: #860707;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
