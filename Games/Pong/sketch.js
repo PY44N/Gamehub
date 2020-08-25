@@ -9,7 +9,6 @@ function setup() {
     player = new Player()
     enemy = new Enemy()
     score = new Score()
-    score = new Score()
 }
 
 function draw() {
