@@ -97,14 +97,32 @@ h2::selection {
   background: #A93226;
 }
 
+h4::selection {
+  color: white;
+  background: #A93226;
+}
+
 button::selection {
   color:white;
   background: #A93226;
 }
 
+li::selection {
+  color: white;
+  background: #A93226;
+}
+
 b::selection {
   color: white;
-  background: A93226;
+  background: #A93226;
+}
+.credits::selection {
+  color: white;
+  background: #A93226
+}
+
+.icon::selection {
+  background: #A93226;
 }
 
 /*Button effects*/
